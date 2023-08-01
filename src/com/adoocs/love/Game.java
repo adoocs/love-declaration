@@ -54,21 +54,11 @@ public class Game extends javax.swing.JPanel {
         int x = random.nextInt(0, getWidth() - cmdNo.getWidth());
         int y = random.nextInt(0, getHeight() - cmdNo.getHeight());
         Point p = new Point(x, y);
-        if (container(p)) {
+        if (cmdYes.getBounds().contains(p)) {
             setLocation();
         } else {
             cmdNo.setLocation(p);
         }
-    }
-
-    private boolean container(Point p) {
-        int x = cmdYes.getX();
-        int y = cmdYes.getY();
-        int w = cmdYes.getWidth();
-        int h = cmdYes.getHeight();
-        int dw = getWidth();
-        int dh = getHeight();
-        return !(p.x > x && p.x < dw - w - x) && (p.y > y && p.y < dh - h - y);
     }
 
     @SuppressWarnings("unchecked")
